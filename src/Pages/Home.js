@@ -1,8 +1,22 @@
 import React, {useState} from  "react";
 import {useLazyQuery} from '@apollo/client';
 import {getWeatherQuery} from '../graphql/Queries';
+import Weather from '../app_component/weather.component';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'weather-icons/css/weather-icons.css';
 
-function Home() {
+class Home extends React.Component {
+    state = {}
+    render() {
+        return(
+            <div className="Home">
+                <Weather />
+            </div>
+        );
+    }
+}
+
+function HomeFunction() {
     const [citySearched, setCitySearched] = useState("");
 
     const [getWeather, {data, error}] = useLazyQuery(getWeatherQuery, {
@@ -19,7 +33,7 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Search for the Weather</h1>
+            <Weather />
             <input
                 type="text"
                 placeholder="Enter City Name"

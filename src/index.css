@@ -13,6 +13,8 @@ code {
     monospace;
 }
 
-.home {
-  background-position: url('./Assets/warmWeather.gif');
+* {
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
 }
