@@ -5,18 +5,19 @@ import Weather from '../app_component/weather.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
 
-class Home extends React.Component {
+/*
+class HomeClass extends React.Component {
     state = {}
     render() {
         return(
-            <div className="Home">
+            <div className="HomeClass">
                 <Weather />
             </div>
         );
     }
-}
+}*/
 
-function HomeFunction() {
+function Home() {
     const [citySearched, setCitySearched] = useState("");
 
     const [getWeather, {data, error}] = useLazyQuery(getWeatherQuery, {
@@ -27,13 +28,15 @@ function HomeFunction() {
     if(error){
         return <h1>error found</h1>
     }
+
+    //only display the data once it has been loaded.
     if(data){
         console.log(data);
     }
 
     return (
         <div className="home">
-            <Weather />
+
             <input
                 type="text"
                 placeholder="Enter City Name"
@@ -58,7 +61,9 @@ function HomeFunction() {
                     </>
                 )}
             </div>
+            <Weather />
         </div>
+
     )
 
 }
